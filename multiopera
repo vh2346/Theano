@@ -1,0 +1,14 @@
+# Import libraries
+import theano
+from theano import tensor
+# Creación de dos matrices
+x, y = tensor.dmatrices('x', 'y')
+# Creación de la expresión para la suma y la resta
+add = x + y
+sub = x - y
+# Convertir la expresión en un objeto llamable que tome las matrices 'x' e 'y' como entrada y calcule la suma y la resta
+multi_function = theano.function([x, y], [add,sub])
+# Llamada a la función
+oper=multi_function([[1, 1], [2, -4]],[[2,2],[3,3]])
+print(oper)
+

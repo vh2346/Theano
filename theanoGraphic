@@ -1,0 +1,16 @@
+import theano
+from theano import tensor
+
+# declarar una variable
+x = tensor.dmatrix('x')
+
+# crear la expresion
+s = 1 / (1 + tensor.exp(-x))
+
+#  convertir la expresión en un objeto llamable que toma
+# una matriz como parámetro y devuelve s(x)
+
+logistic = theano.function([x], s)
+
+# llamar a la función con una matriz de prueba e imprimir el resultado
+print(logistic([[0, 1], [-1, -2]]))

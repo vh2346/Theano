@@ -1,0 +1,10 @@
+from theano import *
+# Creando dos escalares de punto flotante
+a = tensor.dmatrix()
+b = tensor.dmatrix()
+c = tensor.dot(a,b)
+# Convertir la expresión en un objeto llamable que tome los valores (a,b) como entrada y calcule un valor para c
+f = theano.function([a,b], c)
+# Llamada a la función
+d = f([[0, -1, 2],[4, 11, 2]], [[3, -1],[1,2],[6,1]])
+print (d)

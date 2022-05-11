@@ -1,0 +1,16 @@
+# Import libraries
+import theano
+from theano import tensor
+from theano import pp
+# Creación de un escalar
+x = tensor.dscalar('x')
+# Creación de la expresión 'y'
+y = (2 * x ** 3)
+# Calculando la derivada
+derivative = tensor.grad(y, x)
+# Imprimir el gradiente
+pp(derivative)
+# Convertir la expresión en un objeto llamable que tome 'x' como entrada y calcule un valor para la 'derivada'
+fun = theano.function([x], derivative)
+# Llamada a la función
+print(fun(3))
